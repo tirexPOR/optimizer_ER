@@ -3,7 +3,6 @@ from pulp import *
 
 import Variables
 
-
 def optimize(coeff, helmet_len, chest_len, gauntlets_len, legArmor_len):
     print(helmet_len)
     print(chest_len)
