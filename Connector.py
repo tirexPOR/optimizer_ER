@@ -13,7 +13,7 @@ def downloadList(armorType):
                                              password='')
         cursor = connection.cursor()
         query = "select a.Armor_name " \
-                "from armor a inner join type t on a.Armor_type=t.Type_ID " \
+                "from armor a join type t on a.Armor_type=t.Type_ID " \
                 "where t.Type_name='" + armorType + "';"
         cursor.execute(query)
 
@@ -57,10 +57,10 @@ def downloadRes():
         query = "select a.Armor_physic, a.Armor_vs_strike, a.Armor_vs_slash, a.Armor_vs_pierce, " \
                 "a.Armor_magic, a.Armor_fire, a.Armor_electric, a.Armor_holy, a.Armor_imm, " \
                 "a.Armor_rob, a.Armor_focus, a.Armor_vit, a.Armor_poise, a.Armor_weight " \
-                "from (((armor a inner join type t on a.Armor_type=t.Type_ID) " \
-                "inner join regions r on a.Armor_region=r.Region_ID) " \
-                "inner join bosses b on a.Armor_boss=b.Boss_ID) " \
-                "inner join classes c on a.Armor_class=c.Class_ID " \
+                "from armor a join type t on a.Armor_type=t.Type_ID " \
+                "join regions r on a.Armor_region=r.Region_ID " \
+                "join bosses b on a.Armor_boss=b.Boss_ID " \
+                "join classes c on a.Armor_class=c.Class_ID " \
                 "where c.Class_name='" + Variables.classes[Variables.startClass] + "' and " \
                 "a.Armor_weight<=" + str(Variables.load) + " or " \
                 "c.Class_name = 'None' and " \
@@ -105,10 +105,10 @@ def downloadLen(armorType):
         enemies = enemies.removesuffix(', ')
 
         query = "select count(*) " \
-                "from (((armor a inner join type t on a.Armor_type=t.Type_ID) " \
-                "inner join regions r on a.Armor_region=r.Region_ID) " \
-                "inner join bosses b on a.Armor_boss=b.Boss_ID) " \
-                "inner join classes c on a.Armor_class=c.Class_ID " \
+                "from armor a join type t on a.Armor_type=t.Type_ID " \
+                "join regions r on a.Armor_region=r.Region_ID " \
+                "join bosses b on a.Armor_boss=b.Boss_ID " \
+                "join classes c on a.Armor_class=c.Class_ID " \
                 "where c.Class_name='" + Variables.classes[Variables.startClass] + "' and " \
                 "a.Armor_weight<=" + str(Variables.load) + " and " \
                 "t.Type_name='" + armorType + "' or " \
@@ -155,10 +155,10 @@ def downloadNames():
         enemies = enemies.removesuffix(', ')
 
         query = "select a.Armor_name " \
-                "from (((armor a inner join type t on a.Armor_type=t.Type_ID) " \
-                "inner join regions r on a.Armor_region=r.Region_ID) " \
-                "inner join bosses b on a.Armor_boss=b.Boss_ID) " \
-                "inner join classes c on a.Armor_class=c.Class_ID " \
+                "from armor a join type t on a.Armor_type=t.Type_ID " \
+                "join regions r on a.Armor_region=r.Region_ID " \
+                "join bosses b on a.Armor_boss=b.Boss_ID " \
+                "join classes c on a.Armor_class=c.Class_ID " \
                 "where c.Class_name='" + Variables.classes[Variables.startClass] + "' and " \
                 "a.Armor_weight<=" + str(Variables.load) + " or " \
                 "c.Class_name = 'None' and " \
