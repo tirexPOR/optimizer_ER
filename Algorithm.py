@@ -99,10 +99,10 @@ def optimize(coeff, helmet_len, chest_len, gauntlets_len, legArmor_len):
         weight_total += Variables.legArmorSetRes[13]
 
     print(f"Objective value: {value(prob.objective)}", '-', weight_total)
-    physical = round(100 * (100-coeff[wyniki['chest'][0]][0])/100 * (100-coeff[wyniki['gauntlets'][0]][0])/100 * \
-               (100-coeff[wyniki['helmet'][0]][0])/100 * (100-coeff[wyniki['legArmor'][0]][0])/100, 4)
-    poise = coeff[wyniki['chest'][0]][12] + coeff[wyniki['gauntlets'][0]][12] + coeff[wyniki['helmet'][0]][12] + \
-            coeff[wyniki['legArmor'][0]][12]
-    print('Physical: ' + str(100-physical))
-    print('Poise: ' + str(poise))
+    # physical = round(100 * (100-coeff[wyniki['chest'][0]][0])/100 * (100-coeff[wyniki['gauntlets'][0]][0])/100 * \
+    #            (100-coeff[wyniki['helmet'][0]][0])/100 * (100-coeff[wyniki['legArmor'][0]][0])/100, 4)
+    # poise = coeff[wyniki['chest'][0]][12] + coeff[wyniki['gauntlets'][0]][12] + coeff[wyniki['helmet'][0]][12] + \
+    #         coeff[wyniki['legArmor'][0]][12]
+    # print('Physical: ' + str(100-physical))
+    # print('Poise: ' + str(poise))
     return wyniki
